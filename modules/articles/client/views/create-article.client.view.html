@@ -1,0 +1,28 @@
+<section ng-controller="ArticlesController">
+  <div class="page-header">
+    <h1>小安机器人</h1>
+  </div>
+  </script>
+  <div class="col-md-12">
+    <form name="articleForm" class="form-horizontal" ng-submit="customQues()" novalidate>
+      <fieldset>
+ 
+        <div class="form-group" show-errors>
+          <input type="text" data-ng-model="search" ng-change="similarQues($viewValue)" typeahead="category as category.name for category in categories | limitTo:8" class="form-control" typeahead-on-select="searchStanQuestion($item, $model, $label)" placeholder="请输入您的问题...">
+	    </div>
+        <form name="form1" ng-submit="customQues()">
+            <input name = "algorithm" type="button" id="algorithm" value="lda" onClick="(this.value=='index')?this.value='lda':this.value='index'">
+            <input type="submit" value="确定" class="btn btn-default"/>
+        </form>
+
+        <div class="controls">
+          <textarea name="description" data-ng-model="standard_answer" id="description" class="form-control" cols="30" rows="10" placeholder="答案是..."></textarea>
+        </div>
+        <div ng-show="error" class="text-danger">
+          <strong ng-bind="error"></strong>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</section>
+

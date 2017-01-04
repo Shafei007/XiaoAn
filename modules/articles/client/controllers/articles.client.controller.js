@@ -22,8 +22,8 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
           $scope.categories = res_data;
         }
       };
-      var url = 'https://nameless-badlands-89767.herokuapp.com/nlp/qa?almodel=0&code=0&query=' + $scope.search;
-      //var url = 'padl.paic.com.cn/app/xiaoan/nlp/qa?almodel=0&code=0&query=' + $scope.search;
+      //var url = 'https://nameless-badlands-89767.herokuapp.com/nlp/qa?almodel=0&code=0&query=' + $scope.search;
+      var url = 'padl.paic.com.cn/app/xiaoan/nlp/qa?almodel=0&code=0&query=' + $scope.search;
       xmlHttp.open('GET', url, true); // true for asynchronous 
       xmlHttp.send(null);
     };
@@ -38,8 +38,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 
     $scope.searchStanQuestion = function(standard_question, m, l) {
       var idx = arrayObjectIndexOf($scope.answer, l);
-      //var url = 'padl.paic.com.cn/app/xiaoan/nlp/qa?almodel=0&code=1&query=' + idx;
-	  var url = 'https://nameless-badlands-89767.herokuapp.com/nlp/qa?almodel=0&code=1&query=' + idx；
+      var url = 'padl.paic.com.cn/app/xiaoan/nlp/qa?almodel=0&code=1&query=' + idx;
       var xmlHttp = new XMLHttpRequest();
       xmlHttp.onreadystatechange = function() { 
         if (xmlHttp.readyState === 4 && xmlHttp.status === 200){
@@ -60,14 +59,10 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
     $scope.customQues = function(custom_question) {
       var url = '';
       if(document.getElementByName("algorithm").value === 'index'){
-        /／url = 'padl.paic.com.cn/app/xiaoan/nlp/qa?almodel=0&code=2&query=' + $scope.search;
-		url = 'https://nameless-badlands-89767.herokuapp.com/nlp/qa?almodel=0&code=2&query=' + $scope.search;
-													 
+        url = 'padl.paic.com.cn/app/xiaoan/nlp/qa?almodel=0&code=2&query=' + $scope.search;
       }
       else{
-        /／url = 'padl.paic.com.cn/app/xiaoan/nlp/qa?almodel=1&code=2&query=' + $scope.search;
-		url = 'https://nameless-badlands-89767.herokuapp.com/nlp/qa?almodel=1&code=2&query=' + $scope.search;
-
+        url = 'padl.paic.com.cn/app/xiaoan/nlp/qa?almodel=1&code=2&query=' + $scope.search;
       }
       var xmlHttp = new XMLHttpRequest();
       xmlHttp.onreadystatechange = function() { 
@@ -161,4 +156,3 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
     };
   }
 ]);
-
